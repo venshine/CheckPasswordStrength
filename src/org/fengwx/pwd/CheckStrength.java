@@ -23,7 +23,7 @@ package org.fengwx.pwd;
  */
 public class CheckStrength {
 
-	private enum LEVEL {
+	public enum LEVEL {
 		EASY, MIDIUM, STRONG, VERY_STRONG, EXTREMELY_STRONG
 	}
 
