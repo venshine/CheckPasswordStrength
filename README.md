@@ -1,29 +1,37 @@
 CheckPasswordStrength
 ==
-CheckPasswordStrength is a simple open source java library, it provides check password strength level.
+CheckPasswordStrength是一个Java开源库，提供检测密码强度的功能。
 
-Setup
+Usage
 --
-* Download the project from [GitHub](https://github.com/fengwenxuan/CheckPasswordStrength.git)
-* Import it to your Eclipse workspace or IntelliJ IDEA project
-* Set your project properties, then add a java project library, and select CheckPasswordStrength
+```Java
+    public static void main(String[] args) {
+		String passwd = "2hAj5#mne-ix.86H";
+		System.out.println(CheckStrength.checkPasswordStrength(passwd));
+	}
+```
 
-Author
+Download
 --
-Fengwx   fengwx.cn@gmail.com
+[下载jar包]()
+
+About
+--
+* Email：venshine.cn@gmail.com
 
 License
 --
-    Copyright (C) 2014 fengwx.cn@gmail.com
+    Copyright (C) 2014 venshine.cn@gmail.com
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
-    
+
     http://www.apache.org/licenses/LICENSE-2.0
-    
+
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
