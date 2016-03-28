@@ -8,16 +8,11 @@ Desc
 {"password", "abc123", "iloveyou", "adobe123", "123123", "sunshine","1314520", "a1b2c3", "123qwe", "aaa111", "qweasd", "admin", "passwd"}
 
 #####Level:
-0-3:easy;
-
-4-6:midium;
-
-7-9:strong;
-
-10-12:very strong;
-
-&gt;12:extremely strong.
-
+0-3 : easy;  
+4-6 : midium;  
+7-9 : strong;  
+10-12 : very strong;  
+&gt;12 : extremely strong.  
 
 Usage
 --
