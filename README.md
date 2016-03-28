@@ -13,7 +13,7 @@ Usage
 
 Download
 --
-[下载jar包]()
+[下载jar包](https://github.com/venshine/CheckPasswordStrength/blob/master/CheckPasswordStrength.jar)
 
 About
 --
