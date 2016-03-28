@@ -9,10 +9,15 @@ Desc
 
 #####Level:
 0-3:easy;
+
 4-6:midium;
+
 7-9:strong;
+
 10-12:very strong;
+
 &gt;12:extremely strong.
+
 
 Usage
 --
