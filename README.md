@@ -1,5 +1,7 @@
 CheckPasswordStrength
 ==
+[![JitPack](https://jitpack.io/v/venshine/CheckPasswordStrength.svg)](https://jitpack.io/#venshine/CheckPasswordStrength)
+
 CheckPasswordStrength是一个Java开源库，提供检测密码强度的功能。
 
 Desc
