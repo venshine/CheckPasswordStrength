@@ -37,3 +37,11 @@ proguard/
 .idea/
 build.log
 build-log.xml
+
+# 私有内容与临时文件
+.private/
+.tmp/
+
+# Gradle
+build/
+.gradle/

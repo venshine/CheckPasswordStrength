@@ -1,0 +1,40 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+version = '2.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+// 源码沿用原有的 src/ 目录结构；回归测试见 test.sh
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+java {
+    withSourcesJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    // 编译为 Java 8 字节码，兼容老项目
+    options.release = 8
+}
+
+// 通过 JitPack 发布：com.github.venshine:CheckPasswordStrength:<tag>
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.venshine'
+            artifactId = 'CheckPasswordStrength'
+            version = project.version
+            from components.java
+        }
+    }
+}

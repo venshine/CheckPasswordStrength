@@ -16,6 +16,8 @@
 
 package com.wx.pwd;
 
+import java.util.Locale;
+
 /**
  * 检测密码强度
  *
@@ -24,7 +26,7 @@ package com.wx.pwd;
 public class CheckStrength {
 
     public enum LEVEL {
-        EASY, MIDIUM, STRONG, VERY_STRONG, EXTREMELY_STRONG
+        EASY, MEDIUM, STRONG, VERY_STRONG, EXTREMELY_STRONG
     }
 
     private static final int NUM = 1;
@@ -164,13 +166,14 @@ public class CheckStrength {
         }
 
         // decrease points
-        if ("abcdefghijklmnopqrstuvwxyz".indexOf(passwd) > 0 || "ABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(passwd) > 0) {
+        // 序列从开头匹配时 indexOf 返回 0，因此用 >= 0 判断
+        if ("abcdefghijklmnopqrstuvwxyz".indexOf(passwd) >= 0 || "ABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(passwd) >= 0) {
             level--;
         }
-        if ("qwertyuiop".indexOf(passwd) > 0 || "asdfghjkl".indexOf(passwd) > 0 || "zxcvbnm".indexOf(passwd) > 0) {
+        if ("qwertyuiop".indexOf(passwd) >= 0 || "asdfghjkl".indexOf(passwd) >= 0 || "zxcvbnm".indexOf(passwd) >= 0) {
             level--;
         }
-        if (StringUtils.isNumeric(passwd) && ("01234567890".indexOf(passwd) > 0 || "09876543210".indexOf(passwd) > 0)) {
+        if (StringUtils.isNumeric(passwd) && ("01234567890".indexOf(passwd) >= 0 || "09876543210".indexOf(passwd) >= 0)) {
             level--;
         }
 
@@ -198,22 +201,23 @@ public class CheckStrength {
             }
         }
 
-        if (StringUtils.isNumeric(passwd) && len >= 6) { // 19881010 or 881010
-            int year = 0;
-            if (len == 8 || len == 6) {
-                year = Integer.parseInt(passwd.substring(0, len - 4));
-            }
-            int size = StringUtils.sizeOfInt(year);
-            int month = Integer.parseInt(passwd.substring(size, size + 2));
-            int day = Integer.parseInt(passwd.substring(size + 2, len));
-            if (year >= 1950 && year < 2050 && month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+        // 只识别 yyyyMMdd 和 yyMMdd 两种日期格式，其他长度的纯数字不做解析，避免超长数字溢出
+        if (StringUtils.isNumeric(passwd) && (len == 8 || len == 6)) { // 19881010 or 881010
+            int yearLen = len - 4;
+            int year = Integer.parseInt(passwd.substring(0, yearLen));
+            int month = Integer.parseInt(passwd.substring(yearLen, yearLen + 2));
+            int day = Integer.parseInt(passwd.substring(yearLen + 2));
+            boolean validYear = len == 6 || (year >= 1950 && year < 2050);
+            if (validYear && month >= 1 && month <= 12 && day >= 1 && day <= 31) {
                 level--;
             }
         }
 
         if (null != DICTIONARY && DICTIONARY.length > 0) {// dictionary
+            String lowerPasswd = passwd.toLowerCase(Locale.ROOT);
             for (int i = 0; i < DICTIONARY.length; i++) {
-                if (passwd.equals(DICTIONARY[i]) || DICTIONARY[i].indexOf(passwd) >= 0) {
+                // 密码包含字典词，或密码本身是字典词的一部分
+                if (lowerPasswd.contains(DICTIONARY[i]) || DICTIONARY[i].contains(lowerPasswd)) {
                     level--;
                     break;
                 }
@@ -258,7 +262,7 @@ public class CheckStrength {
             case 4:
             case 5:
             case 6:
-                return LEVEL.MIDIUM;
+                return LEVEL.MEDIUM;
             case 7:
             case 8:
             case 9:
