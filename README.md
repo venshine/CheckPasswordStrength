@@ -18,6 +18,9 @@ Desc
 
 Usage
 --
+纯 Java 实现，没有第三方依赖，Java 和 Kotlin（JVM / Android）都可以直接调用。
+
+##### Java:
 ```Java
     public static void main(String[] args) {
 		String passwd = "2hAj5#mne-ix.86H";
@@ -27,6 +30,21 @@ Usage
 
 ```Java
     CheckStrength.LEVEL level = CheckStrength.getPasswordLevel(passwd); // EASY / MEDIUM / STRONG / VERY_STRONG / EXTREMELY_STRONG
+```
+
+##### Kotlin:
+```kotlin
+import com.wx.pwd.CheckStrength
+
+fun main() {
+    val passwd = "2hAj5#mne-ix.86H"
+    println(CheckStrength.checkPasswordStrength(passwd)) // 强度分值
+
+    when (CheckStrength.getPasswordLevel(passwd)) {
+        CheckStrength.LEVEL.EASY, CheckStrength.LEVEL.MEDIUM -> println("密码太弱")
+        else -> println("密码强度合格")
+    }
+}
 ```
 
 Download
@@ -39,6 +57,17 @@ repositories {
 
 dependencies {
     implementation 'com.github.venshine:CheckPasswordStrength:2.0.0'
+}
+```
+
+##### Gradle Kotlin DSL:
+```kotlin
+repositories {
+    maven("https://jitpack.io")
+}
+
+dependencies {
+    implementation("com.github.venshine:CheckPasswordStrength:2.0.0")
 }
 ```
 
