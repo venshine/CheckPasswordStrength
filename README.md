@@ -3,7 +3,7 @@ CheckPasswordStrength
 
 English | [简体中文](README-CN.md)
 
-[![JitPack](https://jitpack.io/v/venshine/CheckPasswordStrength.svg)](https://jitpack.io/#venshine/CheckPasswordStrength)
+[![JitPack](https://jitpack.io/v/venshine/CheckPasswordStrength.svg)](https://jitpack.io/#venshine/CheckPasswordStrength)  [![CI](https://github.com/venshine/CheckPasswordStrength/actions/workflows/ci.yml/badge.svg)](https://github.com/venshine/CheckPasswordStrength/actions/workflows/ci.yml)
 
 CheckPasswordStrength is an open-source Java library for checking password strength.
 

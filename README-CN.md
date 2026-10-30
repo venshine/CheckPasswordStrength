@@ -3,7 +3,7 @@ CheckPasswordStrength
 
 [English](README.md) | 简体中文
 
-[![JitPack](https://jitpack.io/v/venshine/CheckPasswordStrength.svg)](https://jitpack.io/#venshine/CheckPasswordStrength)
+[![JitPack](https://jitpack.io/v/venshine/CheckPasswordStrength.svg)](https://jitpack.io/#venshine/CheckPasswordStrength)  [![CI](https://github.com/venshine/CheckPasswordStrength/actions/workflows/ci.yml/badge.svg)](https://github.com/venshine/CheckPasswordStrength/actions/workflows/ci.yml)
 
 CheckPasswordStrength是一个Java开源库，提供检测密码强度的功能。
 
