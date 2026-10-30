@@ -1,15 +1,18 @@
 CheckPasswordStrength
 ==
+
+English | [简体中文](README-CN.md)
+
 [![JitPack](https://jitpack.io/v/venshine/CheckPasswordStrength.svg)](https://jitpack.io/#venshine/CheckPasswordStrength)
 
-CheckPasswordStrength是一个Java开源库，提供检测密码强度的功能。
+CheckPasswordStrength is an open-source Java library for checking password strength.
 
 Desc
 --
-#### Dictionary（字典）
+#### Dictionary
 **{"password", "abc123", "iloveyou", "adobe123", "123123", "sunshine","1314520", "a1b2c3", "123qwe", "aaa111", "qweasd", "admin", "passwd"}**
 
-#### Level（级别）
+#### Level
 * **0-3 : [easy]**
 * **4-6 : [medium]**  
 * **7-9 : [strong]**  
@@ -18,7 +21,7 @@ Desc
 
 Usage
 --
-纯 Java 实现，没有第三方依赖，Java 和 Kotlin（JVM / Android）都可以直接调用。
+Pure Java with no third-party dependencies. It can be called directly from both Java and Kotlin (JVM / Android).
 
 ##### Java:
 ```Java
@@ -38,18 +41,18 @@ import com.wx.pwd.CheckStrength
 
 fun main() {
     val passwd = "2hAj5#mne-ix.86H"
-    println(CheckStrength.checkPasswordStrength(passwd)) // 强度分值
+    println(CheckStrength.checkPasswordStrength(passwd)) // strength score
 
     when (CheckStrength.getPasswordLevel(passwd)) {
-        CheckStrength.LEVEL.EASY, CheckStrength.LEVEL.MEDIUM -> println("密码太弱")
-        else -> println("密码强度合格")
+        CheckStrength.LEVEL.EASY, CheckStrength.LEVEL.MEDIUM -> println("Password is too weak")
+        else -> println("Password is strong enough")
     }
 }
 ```
 
 Download
 --
-##### Gradle（通过 JitPack）:
+##### Gradle (via JitPack):
 ```groovy
 repositories {
     maven { url = 'https://jitpack.io' }
@@ -72,9 +75,9 @@ dependencies {
 ```
 
 ##### Jar:
-[下载jar包](https://github.com/venshine/CheckPasswordStrength/blob/master/CheckPasswordStrength.jar)
+[Download the jar](https://github.com/venshine/CheckPasswordStrength/blob/master/CheckPasswordStrength.jar)
 
-> 2.0.0 修复了连续序列、字典词检测和超长纯数字崩溃等问题，部分密码的评分会与 1.x 不同；枚举 `LEVEL.MIDIUM` 更名为 `LEVEL.MEDIUM`。详见 [CHANGELOG](CHANGELOG.md)。
+> 2.0.0 fixes consecutive sequence detection, dictionary word detection and a crash on very long numeric passwords, so some passwords score differently than in 1.x. The enum `LEVEL.MIDIUM` has been renamed to `LEVEL.MEDIUM`. See the [CHANGELOG](CHANGELOG.md).
 
 Test
 --
@@ -84,7 +87,7 @@ Test
 
 About
 --
-* Email：venshine.cn@gmail.com
+* Email: venshine.cn@gmail.com
 
 License
 --
@@ -101,4 +104,3 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
