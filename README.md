@@ -75,7 +75,7 @@ dependencies {
 ```
 
 ##### Jar:
-[Download the jar](https://github.com/venshine/CheckPasswordStrength/blob/master/CheckPasswordStrength.jar)
+[Download the jar](https://github.com/venshine/CheckPasswordStrength/releases/download/2.0.0/CheckPasswordStrength.jar)
 
 > 2.0.0 fixes consecutive sequence detection, dictionary word detection and a crash on very long numeric passwords, so some passwords score differently than in 1.x. The enum `LEVEL.MIDIUM` has been renamed to `LEVEL.MEDIUM`. See the [CHANGELOG](CHANGELOG.md).
 
